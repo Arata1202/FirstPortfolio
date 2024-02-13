@@ -1,0 +1,105 @@
+{% extends "blog/innerbase.html" %} 
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'CSS/portfoliosite.css' %}">
+
+<h2 class="toptitle" id="portfolio">Portfolio</h2>
+    
+    <div class="box">
+        <h3>GitHub : <a href="https://github.com/Arata1202/Portfolio-PB" target="_blank">Portfolio-PB</a></h3>
+        <hr>
+
+        <h2 class="mokuji-h2">目次</h2>
+            <ul class="mokuji-ul">
+                <li><a href="javascript:void(0);" onclick="scrollToTop();">1 , Portfolio</a></li>
+                <li><a href="javascript:void(0);" onclick="ScrollWindow('kikkake');">2 , 開発のきっかけ</a></li>
+                <li><a href="javascript:void(0);" onclick="ScrollWindow('tool');">3 , 使用言語 / ツール</a></li>
+                <li><a href="javascript:void(0);" onclick="ScrollWindow('sekkei');">4 , アプリの設計</a></li>
+                <li><a href="javascript:void(0);" onclick="ScrollWindow('step');">5 , 開発工程</a></li>
+                <li><a href="javascript:void(0);" onclick="ScrollWindow('during');">6 , 開発期間</a></li>
+                <li><a href="javascript:void(0);" onclick="ScrollWindow('last');">7 , 最後に</a></li>
+            </ul>
+        <hr>
+        
+        <h2 class="subtitle" id="kikkake">開発のきっかけ</h2>
+        <p>2023年の7月にプログラミングの学習を始め、少しずつではありますが知識や技術を習得してきました。</p>
+        <p>まだまだ実務をこなすほどの実力はありませんが、一つの区切りとして私の努力結果を形にするため、このPortfolioの作成に至りました。</p> 
+        <hr>
+        
+        <h2 class="subtitle" id="tool">使用言語 / ツール</h2>
+        <ul>
+            <li>HTML / CSS</li>
+            <li>JavaScript</li>
+            <li>Python / Django</li>
+            <li>SQLite ※MySQLに変更予定</li>
+            <li>AWS / EC2 / Route53</li>
+            <li>Nginx</li>
+            <li>Gunicorn</li>
+            <li>Git / GitHub</li>
+            <li>VSCode</li>
+        </ul>
+        <p>フレームワークはPythonのDjangoを採用しました。</p>
+        <p>JavaのSpringBootと迷いましたが、現在はPythonの需要が高まってきていることや、将来性や需要の伸びを期待されているということでDjangoを採用しました。</p>
+        <hr>
+        
+        <h2 class="subtitle" id="sekkei">アプリの設計</h2>
+
+        <h3>PWA化</h3>
+        <p>サービスワーカーへ登録し、PWA化しました。ネイティブアプリのようなwebサイトになり、操作性が向上しています。</p>
+        <p>フッターとスマートフォンのホームバーが干渉しないようなCSSも施しています。</p>
+        <img src="media/IMG_pwa.jpeg" alt="">
+
+        <h3>レスポンシブデザイン</h3>
+        <p>PC , スマートフォン , タブレットに対応しています。</p>
+        <img src="media/respon.jpg" alt="">
+
+        <h3>ナビゲーションメニュー</h3>
+        <p>ヘッダーを固定しているためタイトルへidを設定してもズレが生じますが、marginとpaddingで微調整し、正確な位置へ遷移できることがポイントです。</p>
+        
+        <h3>ハンバーガーメニュー</h3>
+        <p>スマートフォン、タブレットの場合表示されます。</p>
+        <p>内部リンクを押した際に、自動でハンバーガーメニューが閉じられるのがポイントです。</p>
+        <img src="media/IMG_ham.jpg" alt="">
+
+        <h3>スライダー</h3>
+        <p>webサイトをリッチにするため、jQueryでslickのスライダーを採用しました。</p>
+        <img src="media/IMG_slick.jpeg" alt="">
+
+        <h3>内部リンク</h3>
+        <p>内部リンクに気づいてもらえるよう、動作を取り入れて目立つように設計しました。</p>
+        <hr>
+
+        <h2 class="subtitle" id="step">開発工程</h2>
+        <h3>1 , ローカル環境でPortfolioの作成</h3>
+        <p>VSCode , Anaconda Promptを使用してローカル環境で開発しました。</p>
+        <br>
+        <h3>2 , Nginx , GunicornでEC2へデプロイ</h3>
+        <p>初めはDjangoを直接デプロイしましたが、独自ドメインを紐づける事が出来なかったため、こちらの方法を採用しました。</p>
+        <br>
+        <h3>3 , Route 53でドメインを取得し、独自ドメイン化</h3>
+        <p>AWSのRoute53で簡単に紐づけることが出来ました。</p>
+        <br>
+        <h3>4 , SSL化</h3>
+        <p>初めはAWSのACMでSSL化を試みましたが、ロードバランサーの設定が上手くいかず断念しました。</p>
+        <p>代替案としてNginxでCertbotを使用し、SSL化に成功しました。</p>
+        <br>
+        <h3>5 , 完成</h3>
+        <hr>
+
+        <h2 class="subtitle" id="during">開発期間</h2>
+        <p>約5日かかりました。</p>
+        <p>上記で述べた工程は成功した事についてしか触れていませんが、失敗もかなり多く、デプロイに丸一日かかってしまいました。</p>
+        <hr>
+        
+        <h2 class="subtitle" id="last">最後に</h2>
+        <p>自身の初めてのポートフォリオが完成しました。</p>
+        <p>想定よりも苦戦はしてしまいましたが、個人的には出来の良いポートフォリオが完成したのではないかと考えています。</p>
+        <p>これで終わりにせず、今後もアップデートを重ねていく予定です。</p>
+        <p>以上で紹介を終わりとさせていただきます。</p>
+        <p>ご覧いただきありがとうございました。</p>
+    </div>
+
+    <script src="{% static 'JS/portfoliosite.js' %}"></script>
+{% for post in posts %}
+{% endfor %}
+{% endblock %}
